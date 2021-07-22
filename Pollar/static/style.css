@@ -1,0 +1,52 @@
+.navbar-brand {
+	font-size: 30px;
+	font-weight: bold;
+}
+a.nav-link{
+	font-size: 20px;
+}
+a.nav-link:hover {
+	background-color: white;
+}
+.navbar {
+	padding-bottom: 0px;
+	padding-top: 0px;
+	background-color: #20c997;
+}
+
+section {
+	padding-top:60px;
+}
+h1.app-intro {
+	margin-bottom: 60px;
+}
+p {
+	font-size: 20px;
+}
+
+span.highlight {
+	font-weight: bold;
+}
+ul {
+	list-style-type: none;
+}
+span.numbers {font-weight: bold;
+	color: #20c997
+
+}
+button.btn {
+	background-color:#20c997;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	
+}
+div.centre {
+	padding: 20px;
+	text-align: center;
+}
+#contact li{
+	font-size: 20px;
+	display: inline;
+	padding: 10px;
+}

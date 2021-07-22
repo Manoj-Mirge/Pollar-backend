@@ -5,14 +5,111 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="{{url_for("static",filename="style.css")}}" rel="stylesheet"/>
     
     <title>Pollar</title>
   </head>
   
   <body>
+<div id="viewport" >
+<div id="content">
+  <nav class="navbar navbar-expand-md navbar-light bg-lightd-inline-block align-text-top" >
+  <div class="container-fluid" id="navbar">
+     <a class="navbar-brand" href="#"><img src="{{url_for("static",filename="brand-name.png")}}" alt="" width="30" height="30" class="d-inline-block align-text-top" />Pollar
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  active" href="#">New Poll</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Public Poll</a>
+        </li>
+      </ul>
+      <div class="d-flex flex-row-reverse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0 ">
+        <li class="nav-item active">
+          <a class="nav-link active" href="#">Log In</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link active" href="#">Sign Up</a>
+        </li>
+      </ul>
+      </div>
+    </div>
+  </div>
+</nav>
 
-    <div><h1>Welcome to Pollar</h1> </div>
+<main>
+  <div class="container-lg shadow p-3 mb-5 bg-body rounded">
+  <section id="app-info">
+    <article id="app-introduction">
+      <h1 class="app-intro">
+Create online polls fast with the Pollar poll maker.
+     </h1>
+     <p class="app-intro">Looking for the best online poll maker? Look no further than the Pollar online poll creator! Whatever the purpose of your poll – be it an opinion poll for research purposes, your general curiosity about people’s thoughts on a particular issue . Pollar is quick, easy and straightforward to use. Get started now!
+     </p>
+    </article>
+  </section>
+  <section id="app-guide">
+    <article class="app-instruction">
+      <h2 class="app-instruction">
+        Get started in <span class="numbers">03</span> simple steps.
+      </h2>
+      <ul>
+        <li><p>
+          <span class="numbers">01.</span>First start by making your Pollar acount, to create account  click on <span class="highlight">Sign Up</span> on right upper corner.It will take you to registration page.Fill the required details and submit and there you go! you  have your  Pollar account. 
+        </p>
+      </li>
+      <li><p>
+        <span class="numbers">02.</span>To create new poll click on <span class="highlight">New Poll</span> if you do not have Pollar account it will take you to <span class="highlight">Sign Up</span> page ,if you have Pollar account it will take you to page where you can create poll .You can add your option for poll question,deadline .
+      </p>
+      <div class="centre"><button type="button" class="btn ">New Poll</button></div>
+      </li>
+      <li><p>
+        <span class="numbers">03.</span>To vote on Polls that are created by other users click on <span class="highlight">Public Poll</span> .It will take you to page where you can see list of other user's Poll whose deadline isn't eneded. 
+      </p>
+        
+      </li>
+      </ul>
+    </article>
+  </section>
+</div>
+</main>
+
+<footer class="bg-light">
+  <p class="navbar-brand">
+  <img src="{{url_for("static",filename="brand-name.png")}}"  alt="" width="30" height="30" class="d-inline-block align-text-top" />Pollar
+    </p>
+    <div class="centre">Contact Us 
+    </div>
+    <div class="centre">
+      <ul id="contact">
+        <li><i class="bi-github"></i></li>
+        <li><i class="bi-linkedin"></i></li>
+      </ul>
+    </div>
+    
+      
+    </div>
+</footer>
+
+
+
+
+
+
+</div>
+</div>
+     
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
   </body>
 
