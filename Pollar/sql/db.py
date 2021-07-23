@@ -8,7 +8,7 @@ def get_db():
     if 'db' not in g: 
             dbname = current_app.config['DBNAME'] 
             g.db = psycopg2.connect(f"dbname={dbname}")
-            return g.db
+    return g.db
 
 
 def close_db(e=None):
