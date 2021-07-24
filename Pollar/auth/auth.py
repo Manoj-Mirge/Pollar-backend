@@ -11,7 +11,7 @@ bp_auth = Blueprint('auth', __name__, url_prefix='/auth')
 
 
 @bp_auth.route('/register', methods=('GET', 'POST'))
-def signup():
+def register():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
@@ -21,9 +21,9 @@ def signup():
 
        
         cursor.execute(
-            'SELECT id FROM Pollar_user WHERE username = ?', (username,)
+            'SELECT id FROM Pollar_user WHERE username =%s', (username,)
         )
-        already_reg_id=cursor.fetchone()[0]
+        already_reg_id=cursor.fetchone()
 
 
         if already_reg_id is not None:
@@ -31,7 +31,7 @@ def signup():
 
         if error is None:
             cursor.execute(
-                'INSERT INTO Pollar_user (username, password) VALUES (?, ?)',
+                'INSERT INTO Pollar_user (username, password) VALUES (%s,%s);',
                 (username, generate_password_hash(password))
             )
             conn.commit()
@@ -52,7 +52,7 @@ def login():
         cursor=conn.cursor()
         error = None
         cursor.execute(
-            'SELECT * FROM Pollar_user WHERE username = ?', (username,)
+            'SELECT * FROM Pollar_user WHERE username = %s ;', (username,)
         )
         user=cursor.fetchone()
 
@@ -82,7 +82,7 @@ def load_logged_in_user():
         conn=get_db()
         cursor=conn.cursor()
         cursor.execute(
-            'SELECT * FROM Pollar_user WHERE id = ?', (user_id,)
+            'SELECT * FROM Pollar_user WHERE id = %s ;', (user_id,)
         )
         g.user = cursor.fetchone() 
 

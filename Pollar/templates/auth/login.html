@@ -1,2 +1,20 @@
-<h1> hii there </h1>
-<a href="{{url_for("auth.login")}}"> click here</a>
+{% extends 'index.html' %}
+
+{% block css_file %}
+<link href="{{url_for("static",filename="auth/style_login.css")}}" rel="stylesheet"/>
+{% endblock %}
+
+{% block title %}
+Log In
+{% endblock %}
+
+{% block content %}
+  <form method="post" action="/auth/login/">
+    <label for="username">Username</label>
+    <input name="username" id="username" required>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" required>
+    <input type="submit" value="Log In">
+  </form>
+
+{% endblock %}
