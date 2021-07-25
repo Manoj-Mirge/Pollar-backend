@@ -20,7 +20,7 @@ def close_db(e=None):
 
 def init_db():
     db = get_db()
-    f = current_app.open_resource("sql/schema.sql")
+    f = current_app.open_resource("db/schema.sql")
     sql_code = f.read().decode("ascii")
     cur = db.cursor()
     cur.execute(sql_code)
