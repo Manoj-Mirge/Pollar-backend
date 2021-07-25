@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block css_file %}
+<link href="{{url_for("static",filename="createpoll/style_create.css")}}" rel="stylesheet"/>
+{% endblock %}
+
+{% block title %}
+options
+{% endblock %}
+
+{% block content %}
+<section class>
+  <form method="post" action="{{url_for("createpoll.options")}}">
+    <label for="options_no">No of options</label>
+    <input name="no_of_options" id="options_no" type="number" required><br/>
+    
+  
+    <input type="submit" value="Register">
+  </form>
+</section>
+{% endblock %}

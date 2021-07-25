@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+
+{% block css_file %}
+<link href="{{url_for("static",filename="createpoll/style_create.css")}}" rel="stylesheet"/>
+{% endblock %}
+
+{% block title %}
+New Poll
+{% endblock %}
+
+{% block content %}
+
+  <form method="post" action="{{url_for("createpoll.create")}}">
+    <label for="title">title</label>
+    <input name="title" id="title"  required><br/>
+    <label for="description">description</label><br/>
+    
+    <input name="description" id="description"  required><br/>
+    {% for no in range(no_of_options) %}
+    <label for="public">Option-{{no+1}}:
+    <input name="option" id="public"  required>
+    {% endfor %}
+    <input type="date" name="date" max="{{max_deadline}}" min="{{date_of_today}}" >
+    <input type="time" name="time" value="22:00" /><br/>
+    <label>public</label>
+    <input type="radio" name="poll_privacy" value="1"><br/>
+    <label>private</label>
+    <input type="radio" name="poll_privacy" value="2"><br/>    
+
+
+    <input type="submit" value="Register">
+  </form>
+
+
+{% endblock %}

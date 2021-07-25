@@ -5,7 +5,7 @@ from flask import (
 )
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from Pollar.sql.db import get_db
+from Pollar.db.db import get_db
 
 bp_auth = Blueprint('auth', __name__, url_prefix='/auth')
 
@@ -21,7 +21,7 @@ def register():
 
        
         cursor.execute(
-            'SELECT id FROM Pollar_user WHERE username =%s', (username,)
+            'SELECT id FROM pollar_user WHERE username =%s', (username,)
         )
         already_reg_id=cursor.fetchone()
 
@@ -31,7 +31,7 @@ def register():
 
         if error is None:
             cursor.execute(
-                'INSERT INTO Pollar_user (username, password) VALUES (%s,%s);',
+                'INSERT INTO pollar_user (username, password) VALUES (%s,%s);',
                 (username, generate_password_hash(password))
             )
             conn.commit()
@@ -52,7 +52,7 @@ def login():
         cursor=conn.cursor()
         error = None
         cursor.execute(
-            'SELECT * FROM Pollar_user WHERE username = %s ;', (username,)
+            'SELECT * FROM pollar_user WHERE username = %s ;', (username,)
         )
         user=cursor.fetchone()
 
@@ -82,7 +82,7 @@ def load_logged_in_user():
         conn=get_db()
         cursor=conn.cursor()
         cursor.execute(
-            'SELECT * FROM Pollar_user WHERE id = %s ;', (user_id,)
+            'SELECT * FROM pollar_user WHERE id = %s ;', (user_id,)
         )
         g.user = cursor.fetchone() 
 

@@ -8,11 +8,15 @@ def create_app():
    app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
    app.config.from_object("config.DevelopmentConfig")
 
-   from Pollar.sql import db
+   from Pollar.db import db
    db.init_app(app)
 
    from Pollar.auth.auth import bp_auth
    app.register_blueprint(bp_auth)
+
+
+   from Pollar.createpoll.createpoll import bp_createpoll
+   app.register_blueprint(bp_createpoll)
    
 
 
