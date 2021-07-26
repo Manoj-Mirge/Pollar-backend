@@ -38,5 +38,8 @@ poll_id INTEGER NOT NULL REFERENCES polls (poll_id) ,
 option_title TEXT NOT NULL
 );
 
-
+CREATE TABLE share_link (
+poll_id INTEGER UNIQUE NOT NULL REFERENCES polls (poll_id),
+link TEXT NOT NULL UNIQUE
+);
 

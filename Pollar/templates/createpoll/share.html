@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+
+{% block css_file %}
+<link href="{{url_for("static",filename="createpoll/style_create.css")}}" rel="stylesheet"/>
+{% endblock %}
+
+{% block title %}
+New Poll
+{% endblock %}
+
+{% block content %}
+
+
+<p>The share link is </p>
+<div><a href="{{url_for('answerpoll.answer',link=share_link)}}">{{share_url}} </a></div>
+
+
+
+
+
+
+
+
+
+{% endblock %}
