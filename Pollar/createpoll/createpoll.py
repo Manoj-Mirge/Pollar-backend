@@ -73,26 +73,30 @@ def create ():
 @login_required
 def share():
     poll_id=request.args.get('poll_id',None)
-    while True:
-        share_link=get_random_link()
-        if check_duplicate(poll_id,share_link):
-            break
     conn=get_db()
     cursor=conn.cursor()
     cursor.execute(
+        "SELECT link FROM share_link WHERE poll_id=%s ",
+        (poll_id,))
+    already_created_poll = cursor.fetchone()
+    
+    if not already_created_poll:
+        while True:
+          share_link=get_random_link()
+          if check_duplicate(share_link):
+            break
+
+        cursor.execute(
         "INSERT INTO share_link (poll_id,link) VALUES (%s,%s)",
-          (poll_id,share_link))
-    conn.commit()  
+        (poll_id,share_link))
+        conn.commit()  
+    else:
+        share_link=already_created_poll[0]
+        
+
+
     share_url="http://127.0.0.1:5000/"+"answerpoll/" +share_link     
     return render_template('createpoll/share.html',share_link=share_link,share_url=share_url)
-
-
-  
-
-
-
-
-
 
 
 def get_random_link():
@@ -101,12 +105,12 @@ def get_random_link():
     random_share_link=random_link1 +'-'+random_link2
     return random_share_link
     
-def check_duplicate(poll_id,share_link):
+def check_duplicate(share_link):
     conn=get_db()
     cursor=conn.cursor()
     cursor.execute(
-        "SELECT link FROM share_link WHERE poll_id=%s",
-        (poll_id,))
+        "SELECT link FROM share_link ")
+        
     link_list=cursor.fetchall()
     ret=True
     for i in range(len(link_list)):

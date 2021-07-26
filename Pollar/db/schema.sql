@@ -43,3 +43,10 @@ poll_id INTEGER UNIQUE NOT NULL REFERENCES polls (poll_id),
 link TEXT NOT NULL UNIQUE
 );
 
+CREATE TABLE poll_votes (
+  vote_id SERIAL PRIMARY KEY,
+  vote INTEGER NOT NULL REFERENCES poll_options (poll_options_id),
+  voter_id INTEGER NOT NULL REFERENCES pollar_user (id),
+  voted_on TIMESTAMP NOT NULL
+);
+

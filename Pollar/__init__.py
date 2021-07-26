@@ -18,8 +18,8 @@ def create_app():
    from Pollar.createpoll.createpoll import bp_createpoll
    app.register_blueprint(bp_createpoll)
    
-
-
+   from Pollar.answerpoll.answerpoll import bp_answerpoll
+   app.register_blueprint(bp_answerpoll)
    
    
 

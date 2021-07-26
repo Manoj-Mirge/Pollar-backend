@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+
+{% block css_file %}
+<link href="{{url_for("static",filename="answerpoll/style_answerpoll.css")}}" rel="stylesheet"/>
+{% endblock %}
+
+{% block title %}
+Answer poll
+{% endblock %}
+
+
+
+{% block content %}
+{% if end_of_deadline %}
+<h1> sorry ,deadline is ended for this form </h1>
+{%endif%}
+
+{% if already_voted %}
+
+<h1> you have already voted for this Poll </h1>
+
+{%endif%}
+
+
+{% if title %}
+
+<div>{{title}}</div>
+<div>{{description}}</div>
+<div>{{created_on}}</div>
+<div>{{deadline}}</div>
+
+<form method="post" action="{{url_for('answerpoll.answerpoll',link=share_link)}}">
+{% for no in range(no_of_options)%}
+<div>
+<label>{{options[no][0]}}</label>
+<input type="radio" name="vote" value="{{options[no][1]}}">
+</div>
+{%endfor%}
+<input type="submit" value="Register">
+</form>
+{%endif%}
+
+{%if answered %}
+
+<h1>your respoonce has been recorded .Thank you for using pollar</h1>
+{% endif %}
+
+{% endblock %}
+
+  
+
