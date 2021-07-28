@@ -1,0 +1,35 @@
+@import url("../style.css");
+# {
+	background-color: white;
+}
+#home{
+	background-color:#20c997;
+}
+
+ #home:hover{
+ 	background-color: white;
+ }
+
+span{
+	font-weight: bold;
+}
+section {
+	margin-left: auto;
+	margin-right: auto;
+}
+h1 {
+	text-align: center;
+}
+div.votes {
+	font-size: 22px;
+}
+div {
+	font-size: 22px;
+}
+
+table {
+	margin-top: 50px;
+}
+.poll {
+	margin: 10px;
+}

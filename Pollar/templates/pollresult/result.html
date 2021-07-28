@@ -1,0 +1,70 @@
+{% extends 'index.html' %}
+
+{% block css_file %}
+<link href="{{url_for("static",filename="pollresult/style_result.css")}}" rel="stylesheet"/>
+{% endblock %}
+
+{% block title %}
+Result
+{% endblock %}
+
+{% block content %}
+<section>
+  
+<div class="result">
+ <h1>Poll Result</h1>  
+
+
+  <div class="poll"><span>Title :-</span> {{title}}</div>
+  <div class="poll"><span>Description :-</span> {{description}}</div>
+  <div class="poll"><span>Created on :-</span> {{created_on.strftime("%Y-%m-%d %H:%M")}}</div>
+  <div class="poll"><span>Deadline :-</span> {{deadline.strftime("%Y-%m-%d %H:%M")}}</div>
+  {% if deadline < date_of_today %}
+  <div class="poll">Voting is closed for this pole</div>
+  {% endif %}
+  <div class="poll">Total No of Votes on this Poll :- {{total_votes}}</div>
+  
+  
+
+
+
+  <div class="polls">
+    
+<table class="table  table-hover">
+  <thead>
+    <tr>
+      
+      <th scope="col">Options</th>
+      <th scope="col">Votes</th>
+      <th scope="col">Percentage</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for option in options %}
+
+  
+    <tr>
+     
+     <td>{{option[1]}}</td>
+     <td> {{votes[option[1]]}}</td>
+     {% if total_votes != 0 %}
+     <td> {{votes[option[1]]/total_votes*100}}%</td>
+     {% else %}
+     <td>0%</td>
+     {% endif %} 
+    </tr>
+   
+{% endfor %}      
+  </tbody>
+</table>
+</div>
+
+
+</div>
+
+
+
+</section>
+
+  
+{% endblock %}
