@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+
+{% block css_file %}
+<link href="{{url_for("static",filename="answerpoll/style_answerpoll.css")}}" rel="stylesheet"/>
+{% endblock %}
+
+{% block title %}
+Select poll
+{% endblock %}
+
+
+
+{% block content %}
+<ul>
+{% for poll in polls %}
+<li>
+
+<a href="{{url_for('answerpoll.answerpoll',link=poll[2])}}">{{poll[0]}}-{{poll[1]}}</a>
+</li>
+{% endfor %}
+</ul>
+{% endblock %}
