@@ -87,7 +87,7 @@ def answerpoll(link):
 
 @bp_answerpoll.route('/selectpoll')
 @login_required
-def selectpoll():
+def selectpoll(): 
     conn=get_db()
     cursor=conn.cursor()
     cursor.execute(

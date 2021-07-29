@@ -11,12 +11,44 @@ Select poll
 
 
 {% block content %}
-<ul>
-{% for poll in polls %}
-<li>
 
-<a href="{{url_for('answerpoll.answerpoll',link=poll[2])}}">{{poll[0]}}-{{poll[1]}}</a>
-</li>
-{% endfor %}
-</ul>
+
+
+
+<div class="polls">
+{% if polls== []%}
+<p> Currently there are no polls availble to answer</p>
+{% else%}
+ <p class="table-header">These are letest Public polls which you can answer if you click on title or description </p>  	
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      
+      <th scope="col-4">Title</th>
+      <th scope="col-8">Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+  	{% for poll in polls %}
+
+  
+    <tr>
+     
+     <td><a href="{{url_for('answerpoll.answerpoll',link=poll[2])}}"> {{poll[0]}}</a></td>
+     <td><a href="{{url_for('answerpoll.answerpoll',link=poll[2])}}">{{poll[1]}}</a> </td>
+      
+    </tr>
+   
+{% endfor %}      
+  </tbody>
+</table>
+{% endif %}
+</div>
+
+
+
+
+
+
 {% endblock %}

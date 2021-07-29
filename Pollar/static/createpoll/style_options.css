@@ -1,0 +1,45 @@
+@import url("../style.css");
+#new_poll {
+	background-color: white;
+}
+#home{
+	background-color:#20c997;
+}
+
+ #home:hover{
+ 	background-color: white;
+ }
+
+
+
+ #register {
+ 	width: 120px;
+ 	margin-top: 20px;
+ 	background-color: #20c997;
+
+ 	}
+
+ label { font-weight: bold;
+  margin-bottom: 0.5em;
+  margin-top: 2em; 
+}
+ input{ width:200px;
+;
+}
+
+ form { margin: 1em 0; 
+ 	display: flex; 
+ 	flex-direction: column;
+ 	}
+
+ div.options {
+	
+	width: 438px;
+	margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 2.5rem;
+}	 
+.heading-text{
+	font-size: 17px;
+	margin-top:60px;
+} 	

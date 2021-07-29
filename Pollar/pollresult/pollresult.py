@@ -18,8 +18,12 @@ def pollresult(poll_id):
     cursor.execute(
         "SELECT author_id FROM polls WHERE Poll_id=%s",
         (poll_id,))
-    author_id=cursor.fetchone()[0]
+    valid_poll_id=cursor.fetchone()
+    if valid_poll_id:
+          author_id=valid_poll_id[0]
 
+    else:
+        abort(404)
     if g.user[0]==author_id:
         cursor.execute(
             "SELECT title,description,created_on,deadline,privacy FROM polls WHERE Poll_id=%s",

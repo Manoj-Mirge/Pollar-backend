@@ -1,7 +1,7 @@
 {% extends 'index.html' %}
 
 {% block css_file %}
-<link href="{{url_for("static",filename="createpoll/style_create.css")}}" rel="stylesheet"/>
+<link href="{{url_for("static",filename="createpoll/style_options.css")}}" rel="stylesheet"/>
 {% endblock %}
 
 {% block title %}
@@ -9,13 +9,19 @@ options
 {% endblock %}
 
 {% block content %}
-<section class>
+
+<section >
+  <div class="options">
+   <h1>Options</h1>
+   <p class="heading-text">You can submit the No of options that you would need for your Poll </p> 
   <form method="post" action="{{url_for("createpoll.options")}}">
     <label for="options_no">No of options</label>
-    <input name="no_of_options" id="options_no" type="number" required><br/>
+    <input name="no_of_options" id="options_no" type="number" required min="2" max="7">
+    <div  class="form-text">Minimum Numbers of options you can have is 2 and maximum is 7.</div>
     
   
-    <input type="submit" value="Register">
+    <button type="button submit" class="btn " id="register">Register</button>
   </form>
+</div>
 </section>
 {% endblock %}

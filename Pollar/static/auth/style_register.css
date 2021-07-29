@@ -2,3 +2,58 @@
 #sign_up {
 	background-color: white;
 }
+#home{
+	background-color:#20c997;
+}
+
+
+ form { margin: 1em 0; 
+ 	display: flex; 
+ 	flex-direction: column;
+ 	
+ 	
+ 	 }
+ 
+ label { font-weight: bold;
+  margin-bottom: 0.5em;
+  margin-top: 2em; 
+margin-left: auto;
+margin-right: auto;}
+
+ input{ width: 250px;
+ 	margin-right: auto;
+ 	margin-left: auto;
+
+ }
+ #home:hover{
+ 	background-color: white;
+ }
+
+ #register {
+ 	width: 120px;
+ 	margin-top: 20px;
+ 	background-color: #20c997;
+ 	margin-left: auto;
+ 	margin-right: auto;
+ }
+ 
+div.signup {
+	
+	width: 438px;
+	margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 2.5rem;
+}
+div.flash {
+	width: 250px;
+	margin-left: auto;
+	margin-right: auto;
+	color: red;
+}
+h1{
+	text-align: center;
+	font-family: sans-serif;
+
+}
+
+ 

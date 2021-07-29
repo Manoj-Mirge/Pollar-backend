@@ -2,3 +2,47 @@
 #new_poll {
 	background-color: white;
 }
+#home{
+	background-color:#20c997;
+}
+
+ #home:hover{
+ 	background-color: white;
+ }
+
+div.poll{
+	margin-left: auto;
+	margin-right: auto;
+	width:500px;
+}
+
+label{
+	display: block;
+	font-weight: bold;
+}
+form {
+	margin-top: 40px;
+}
+#title {
+	width:400px ;
+}
+
+input {
+	margin-bottom: 10px;
+}
+div.form-text {
+	margin-top: -5px;
+}
+.form-check-label{
+	display: inline;
+}
+#register {
+	margin-top: 10px;
+}
+ #register {
+ 	width: 120px;
+ 	margin-top: 20px;
+ 	margin-bottom: 20px;
+ 	background-color: #20c997;
+ 
+ }

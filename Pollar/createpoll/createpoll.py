@@ -61,6 +61,8 @@ def create ():
             return redirect(url_for('createpoll.share',poll_id=poll_id))
 
     no_of_options=request.args.get('no_of_options',None)
+    if no_of_options==None:
+        return redirect(url_for('createpoll.options'))
     date_of_today=datetime.date.today()
     max_deadline=date_of_today+datetime.timedelta(days = 4)
 

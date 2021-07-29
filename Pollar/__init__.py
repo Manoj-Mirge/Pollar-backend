@@ -21,10 +21,11 @@ def create_app():
    from Pollar.answerpoll.answerpoll import bp_answerpoll
    app.register_blueprint(bp_answerpoll)
    
-   
+   from Pollar.pollresult.pollresult import bp_pollresult
+   app.register_blueprint(bp_pollresult)
 
-
-
+   from Pollar.mypolls.mypolls import bp_mypolls
+   app.register_blueprint(bp_mypolls)
 
 
 

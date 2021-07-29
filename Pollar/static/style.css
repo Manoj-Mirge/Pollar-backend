@@ -1,3 +1,9 @@
+html { font-family: sans-serif;
+ background: #eee;  }
+
+h1,h2 { font-family: serif; 
+ margin: 1rem 0; }
+
 .navbar-brand {
 	font-size: 30px;
 	font-weight: bold;
@@ -5,8 +11,16 @@
 a.nav-link{
 	font-size: 20px;
 }
-a.nav-link:hover {
+li.nav-item:hover {
 	background-color: white;
+	padding-right: 5px;
+	padding-left: 5px;
+	border: 1px solid;
+}
+li.nav-item{
+	padding-right: 5px;
+	padding-left: 5px;
+
 }
 .navbar {
 	padding-bottom: 0px;
@@ -16,6 +30,8 @@ a.nav-link:hover {
 
 section {
 	padding-top:60px;
+	font-family: serif;
+
 }
 h1.app-intro {
 	margin-bottom: 60px;
@@ -34,13 +50,9 @@ span.numbers {font-weight: bold;
 	color: #20c997
 
 }
-button.btn {
-	background-color:#20c997;
-	color: white;
-	font-size: 20px;
-	font-weight: bold;
+
 	
-}
+
 div.centre {
 	padding: 20px;
 	text-align: center;
@@ -49,4 +61,26 @@ div.centre {
 	font-size: 20px;
 	display: inline;
 	padding: 10px;
+}
+
+
+#home{
+	background-color: white;
+}
+.contact{
+	color: black;
+}
+ #viewport{
+	position: relative;
+	min-height: 100vh;
+}
+main{
+	padding-bottom: 15rem;
+}
+footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 15rem;
+	
 }

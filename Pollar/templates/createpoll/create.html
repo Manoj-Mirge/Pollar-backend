@@ -9,27 +9,43 @@ New Poll
 {% endblock %}
 
 {% block content %}
-
+  <div class="poll container-md">
+    <h1>Create POll</h1>
   <form method="post" action="{{url_for("createpoll.create")}}">
-    <label for="title">title</label>
-    <input name="title" id="title"  required><br/>
-    <label for="description">description</label><br/>
-    
-    <input name="description" id="description"  required><br/>
+    <label for="title">Title</label>
+    <input name="title" id="title" type="text"  placeholder="eg.Best superhero,sportperson"  required><br/>
+   
+
+    <div class="mb-3">
+  <label for="description" >Description</label>
+  <textarea class="form-control" id="description" name="description" rows="3" placeholder="eg.Best superhero in Marvel universe." required></textarea>
+</div>
     {% for no in range(no_of_options) %}
-    <label for="public">Option-{{no+1}}:
-    <input name="option" id="public"  required>
+    <label for="public">Option-{{no+1}}:</label>
+    <input name="option" type="text" id="public" placeholder="option"  required>
     {% endfor %}
-    <input type="date" name="date" max="{{max_deadline}}" min="{{date_of_today}}" >
-    <input type="time" name="time" value="22:00" /><br/>
-    <label>public</label>
-    <input type="radio" name="poll_privacy" value="1"><br/>
-    <label>private</label>
-    <input type="radio" name="poll_privacy" value="2"><br/>    
+    <label for='deadline'>Deadline-Date</label>
+    
+    <input type="date" name="date" max="{{max_deadline}}" id="deadline" min="{{date_of_today}}" >
+    <div  class="form-text">Maximum deadline you can set in 4 days from now.</div>
+    <label for='deadline-time'>Deadline-time</label>
+   <input type="time" id="deadline-time" name="time" value="23:59" />
+   <div> 
+    <input class="form-check-input" type="radio" name="poll_privacy" id="poll_privacy1" value="1" required>
+  <label class="form-check-label" for="poll_privacy1">
+    Public
+  </label>
+<div  class="form-text">Public Polls will be avilable in Answer Poll section .Any user can vote on Public Poll.</div>
 
-
-    <input type="submit" value="Register">
+  <input class="form-check-input" type="radio" name="poll_privacy" id="poll_privacy2" value="2" required>
+  <label class="form-check-label" for="poll_privacy2">
+    Private
+  </label>
+  <div  class="form-text">Private Polls can only be accesed by share link.Private polls are not avilable in Answer Poll section</div>
+  </div>    
+ <button type="button submit" class="btn" id="register">Create Poll</button>
   </form>
+</div>
 
 
 {% endblock %}

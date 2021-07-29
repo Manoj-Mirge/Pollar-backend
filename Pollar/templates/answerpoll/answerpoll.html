@@ -11,38 +11,42 @@ Answer poll
 
 
 {% block content %}
+
 {% if end_of_deadline %}
-<h1> sorry ,deadline is ended for this form </h1>
+<p class="msg">Deadline is ended for this POll.User can't vote on this Poll </p>
 {%endif%}
 
 {% if already_voted %}
 
-<h1> you have already voted for this Poll </h1>
+<p class="msg"> you have already voted for this Poll. </p>
 
 {%endif%}
 
 
 {% if title %}
-
-<div>{{title}}</div>
-<div>{{description}}</div>
-<div>{{created_on}}</div>
-<div>{{deadline}}</div>
+<section>
+<div class="vote">
+<h1>Answer Poll</h1>	
+<div class="title"><span>Title :-</span>{{title}}</div>
+<p class="description"><span>Description :-</span> {{description}}</p>
+<div><span>Created on :-</span>{{created_on.strftime("%Y-%m-%d %H:%M")}}</div>
+<div><span>Deadline :-</span>{{deadline.strftime("%Y-%m-%d %H:%M")}}</div>
 
 <form method="post" action="{{url_for('answerpoll.answerpoll',link=share_link)}}">
 {% for no in range(no_of_options)%}
 <div>
-<label>{{options[no][0]}}</label>
-<input type="radio" name="vote" value="{{options[no][1]}}">
+<input type="radio" name="vote" id="{{options[no][1]}}" value="{{options[no][1]}}">
+<label for="{{options[no][1]}}"><span>{{options[no][0]}}</span></label>
 </div>
 {%endfor%}
-<input type="submit" value="Register">
+<button type="button submit" class="btn " id="register">Vote</button>
 </form>
 {%endif%}
-
+</div>
+</section>
 {%if answered %}
 
-<h1>your respoonce has been recorded .Thank you for using pollar</h1>
+<p class="msg">your respoonce has been recorded .Thank you for using pollar</p>
 {% endif %}
 
 {% endblock %}

@@ -1,4 +1,59 @@
 @import url("../style.css");
-#new_poll {
+#answerpoll {
 	background-color: white;
 }
+#home{
+	background-color:#20c997;
+}
+
+ #home:hover{
+ 	background-color: white;
+ }
+
+ div.title {
+ 	font-size: 25px;
+ 	margin-bottom: 15px;
+ }
+ h1 {
+ 	text-align: center;
+ 	margin-bottom: 40px;
+ }
+ section {
+ 	width: 400px;
+ 	margin-left: auto;
+ 	margin-right: auto;
+ }
+ p.description {
+ 	font-size: 20px;
+ }
+span {
+	font-weight: bold;
+}
+form {
+	margin-top: 30px;
+}
+
+ #register {
+ 	width: 120px;
+ 	margin-top: 20px;
+ 	margin-bottom: 20px;
+ 	background-color: #20c997;
+ 
+ }
+
+ p.msg {
+ 	margin: 30px;
+ 	text-align: centre;
+ }
+
+ a,a:hover,a:visited {
+    color: inherit;
+    text-decoration: none;
+ }
+
+ table {
+    margin-top: 50px;
+ }
+ p.table-header {
+    margin-top: 30px;
+ }

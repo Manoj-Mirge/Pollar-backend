@@ -16,35 +16,38 @@
 <div id="content">
   <nav class="navbar navbar-expand-md navbar-light bg-lightd-inline-block align-text-top" >
   <div class="container-fluid" id="navbar">
-     <a class="navbar-brand" href="#"><img src="{{url_for("static",filename="brand-name.png")}}" alt="" width="30" height="30" class="d-inline-block align-text-top" />Pollar
+     <a class="navbar-brand" href="/"><img src="{{url_for("static",filename="brand-name.png")}}" alt="" width="30" height="30" class="d-inline-block align-text-top" />Pollar
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#" id="home">Home</a>
+        <li class="nav-item" id="home">
+          <a class="nav-link active" aria-current="page" href="/" >Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link  active" href="{{url_for('createpoll.options')}}" id="new_poll">New Poll</a>
+        <li class="nav-item" id="new_poll">
+          <a class="nav-link  active" href="{{url_for('createpoll.options')}}" >New Poll</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Public Poll</a>
+        <li class="nav-item" id="answerpoll">
+          <a class="nav-link active" href="{{url_for('answerpoll.selectpoll')}}">Answer poll</a>
         </li>
       </ul>
       <div class="d-flex flex-row-reverse">
       <ul class="navbar-nav me-auto mb-2 mb-md-0 ">
         {% if not g.user %}
-        <li class="nav-item active">
-          <a class="nav-link active" href="{{url_for("auth.login")}}" id="log_in">Log In</a>
+        <li class="nav-item active" id="log_in">
+          <a class="nav-link active" href="{{url_for("auth.login")}}" >Log In</a>
         </li>
-        <li class="nav-item ">
-          <a class="nav-link active" href="{{url_for("auth.register")}}" id="sign_up">Sign Up</a>
+        <li class="nav-item" id="sign_up">
+          <a class="nav-link active" href="{{url_for("auth.register")}}" >Sign Up</a>
         </li>
         {% else %}
-        <li class="nav-item active">
-          <a class="nav-link active" href="#">{{g.user[1]}}</a>
+         <li class="nav-item active" id="profile">
+          <a class="nav-link active" href="{{url_for('mypolls.mypolls',user=g.user[1])}}">{{g.user[1]}}</a>
+        </li>
+        <li class="nav-item active" id="mypolls">
+          <a class="nav-link active" href="{{url_for('mypolls.mypolls',user=g.user[1])}}">MyPolls</a>
         </li>
         <li class="nav-item ">
           <a class="nav-link active" href="{{url_for("auth.logout")}}">Log Out</a>
@@ -56,13 +59,11 @@
   </div>
 </nav>
 
-  {% for message in get_flashed_messages() %}
-    <div class="flash">{{ message }}</div>
-  {% endfor %}
+
 
 
 <main>
-  <div class="container-lg shadow p-3 mb-5 bg-body rounded">
+  <div  class="container-lg ">
   {% block content %}
   <section id="app-info">
     <article id="app-introduction">
@@ -76,20 +77,27 @@ Create online polls fast with the Pollar poll maker.
   <section id="app-guide">
     <article class="app-instruction">
       <h2 class="app-instruction">
-        Get started in <span class="numbers">03</span> simple steps.
+        Get started in <span class="numbers">04</span> simple steps.
       </h2>
       <ul>
+
         <li><p>
-          <span class="numbers">01.</span>First start by making your Pollar acount, to create account  click on <span class="highlight">Sign Up</span> on right upper corner.It will take you to registration page.Fill the required details and submit and there you go! you  have your  Pollar account. 
+         <span class="numbers">01.</span> First start by making your Pollar acount, to create account  click on <span class="highlight">Sign Up</span> on right upper corner.It will take you to registration page.Fill the required details and submit and there you go! you  have your  Pollar account. 
         </p>
       </li>
       <li><p>
-        <span class="numbers">02.</span>To create new poll click on <span class="highlight">New Poll</span> if you do not have Pollar account it will take you to <span class="highlight">Sign Up</span> page ,if you have Pollar account it will take you to page where you can create poll .You can add your option for poll question,deadline .
+        <span class="numbers">02.</span>To create new poll click on <span class="highlight">New Poll</span> if you are not logged into your  Pollar account it will take you to <span class="highlight">Log IN</span> page ,after logging in your Pollar account it will take you to page where you can create poll .You can add your options,titile,description and deadline .After creating poll you will get link to share which by clicking people can vote on your poll.
       </p>
-      <div class="centre"><button type="button" class="btn ">New Poll</button></div>
+      
       </li>
       <li><p>
-        <span class="numbers">03.</span>To vote on Polls that are created by other users click on <span class="highlight">Public Poll</span> .It will take you to page where you can see list of other user's Poll whose deadline isn't eneded. 
+        <span class="numbers">03.</span>To vote on Polls that are created by other users click on <span class="highlight">Answer Poll</span> .It will take you to page where you can see 10  user's latest Public Polls whose deadline aren't ended.
+      </p>
+        
+      </li>
+      </li>
+      <li><p>
+        <span class="numbers">04.</span>To see the results of polls click on  <span class="highlight">Mypolls</span> .It will take you to page where you can see list of Polls created by you.You can click on poll's title to see that polls result.
       </p>
         
       </li>
@@ -103,31 +111,26 @@ Create online polls fast with the Pollar poll maker.
 
 <footer class="bg-light">
   <p class="navbar-brand">
-  <img src="{{url_for("static",filename="brand-name.png")}}"  alt="" width="30" height="30" class="d-inline-block align-text-top" />Pollar
+  <img src="{{url_for("static",filename="brand-name.png")}}"  alt="" width="30" height="30" class="d-inline-block align-text-top" />Pollar 
     </p>
     <div class="centre">Contact Us 
     </div>
     <div class="centre">
       <ul id="contact">
-        <li><i class="bi-github"></i></li>
-        <li><i class="bi-linkedin"></i></li>
+       <a href="https://github.com/Manoj-Mirge" class="contact"> <li><i class="bi-github"></i></li></a>
+        <a href="https://www.linkedin.com/in/manoj-mirge-320a83212" class="contact"><li><i class="bi-linkedin"></i></li></a>
       </ul>
     </div>
-    
       
-    </div>
+    
 </footer>
-
-
-
-
-
-
 </div>
 </div>
+
      
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="{{url_for('static',filename='main.js')}}"></script>
   </body>
 
 
