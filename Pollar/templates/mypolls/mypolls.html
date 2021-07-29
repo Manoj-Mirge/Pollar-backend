@@ -1,0 +1,47 @@
+{% extends 'index.html' %}
+
+{% block css_file %}
+<link href="{{url_for("static",filename="mypolls/style_mypolls.css")}}" rel="stylesheet"/>
+{% endblock %}
+
+{% block title %}
+Mypolls
+{% endblock %}
+
+{% block content %}
+ <section>
+<div class="polls">
+  <h1>Mypolls</h1>
+  {% if mypolls==[] %}
+  <p>you haven't created Polls till now</p>
+  {%else%}
+ <p class="table-header">These are the Polls created by you to see results of Polls click on title of poll </p>   
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      
+      <th scope="col-4">Title</th>
+      <th scope="col-8">Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {% for poll in mypolls %}
+
+  
+    <tr>
+     
+     <td><a href="{{url_for('answerpoll.answerpoll',link=poll[2])}}"> {{poll[0]}}</a></td>
+     <td><a href="{{url_for('answerpoll.answerpoll',link=poll[2])}}">{{poll[1]}}</a> </td>
+      
+    </tr>
+   
+{% endfor %}      
+  </tbody>
+</table>
+{% endif %}
+</div>
+</section>
+
+
+{% endblock %}
